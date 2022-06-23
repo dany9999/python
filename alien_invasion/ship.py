@@ -8,7 +8,7 @@ class Ship:
         
 
         #load the ship image and get its rect
-        self.image = pygame.image.load('images/ric.bmp')
+        self.image = pygame.image.load('alien_invasion/images/ric.bmp')
         self.image = pygame.transform.scale(self.image, (120,120))
         self.rect = self.image.get_rect()
   
