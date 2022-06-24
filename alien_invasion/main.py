@@ -28,7 +28,9 @@ class AlienInvasion :
 
     def run_game(self):
         #start the main loop for the game
-
+        pygame.init()
+        pygame.mixer.music.load("alien_invasion/music/dota.mp3")
+        pygame.mixer.music.play(-1,0.0)
         while True :
            
             self._check_events()
@@ -91,8 +93,10 @@ class AlienInvasion :
             self.bullets.add(new_bullet)
 
 
-    #update position of bullets and get rid of old bullets
+    
     def _update_bullets(self):
+
+        #update position of bullets and get rid of old bullets
 
         #update bullet's position
         self.bullets.update()
@@ -102,6 +106,9 @@ class AlienInvasion :
             if bullet.rect.bottom <= 0:
              self.bullets.remove(bullet)
                 
+        #check for any bullets that have hit aliens
+        #if so, get rid of the bullet and the alien
+        collisions = pygame.sprite.groupcollide(self.bullets,self.aliens,True,True)
 
 
 
