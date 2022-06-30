@@ -11,7 +11,10 @@ import game_functions as gf
 def run_game():
     # Initialize pygame, settings, and screen object.
     pygame.init()
+    pygame.mixer.music.load("alien_invasion/music/dota.mp3")
+    pygame.mixer.music.play(-1,0.0)
     ai_settings = Settings()
+    # screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
     screen = pygame.display.set_mode(
         (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
@@ -37,7 +40,7 @@ def run_game():
     # Start the main loop for the game.
     while True:
         gf.check_events(ai_settings, screen, stats, sb, play_button, ship,
-            aliens, bullets)
+            aliens, bullets) 
         
         if stats.game_active:
             ship.update()
